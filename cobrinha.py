@@ -40,13 +40,13 @@ def game():
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP and direction[1] == 0:
+                if event.key == pygame.K_UP and direction[1] == 0:  # Não pode mudar para baixo
                     direction = [0, -block_size]
-                elif event.type == pygame.K_DOWN and direction[1] == 0:
+                elif event.key == pygame.K_DOWN and direction[1] == 0:  # Não pode mudar para cima
                     direction = [0, block_size]
-                elif event.type == pygame.K_LEFT and direction[0] == 0:
+                elif event.key == pygame.K_LEFT and direction[0] == 0:  # Não pode mudar para a direita
                     direction = [-block_size, 0]
-                elif event.type == pygame.K_RIGHT and direction[0] == 0:
+                elif event.key == pygame.K_RIGHT and direction[0] == 0:  # Não pode mudar para a esquerda
                     direction = [block_size, 0]
         
         new_head = [snake[0][0] + direction[0], snake[0][1] + direction[1]]
