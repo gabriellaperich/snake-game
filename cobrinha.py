@@ -30,7 +30,7 @@ def draw_snake(snake):
 #função do jogo
 def game():
     snake = [[100, 100]]
-    direction = [block_size, 0]
+    direction = [block_size, 0] #começa p/ a direita
     food = [random.randrange(0, window_size[0] - block_size, block_size),
             random.randrange(0, window_size[1] - block_size, block_size)]
     
@@ -40,16 +40,13 @@ def game():
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP and direction[1] == 0:
                     direction = [0, -block_size]
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_DOWN:
+                elif event.type == pygame.K_DOWN and direction[1] == 0:
                     direction = [0, block_size]
-            elif event.type == pygame.K_LEFT:
-                if event.key == pygame.K_LEFT:
+                elif event.type == pygame.K_LEFT and direction[0] == 0:
                     direction = [-block_size, 0]
-            elif event.type == pygame.K_RIGHT:
-                if event.key == pygame.K_RIGHT:
+                elif event.type == pygame.K_RIGHT and direction[0] == 0:
                     direction = [block_size, 0]
         
         new_head = [snake[0][0] + direction[0], snake[0][1] + direction[1]]
